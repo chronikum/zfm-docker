@@ -14,6 +14,14 @@ services:
     networks:
       - app-network
     command: ["npm","run-script","prod"]
+  frontend:
+    image: chronikum/zfm-frontend:alpha
+    container_name: frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    networks:
+      - app-network
   db:
     image: mongo
     container_name: db
