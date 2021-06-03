@@ -5,6 +5,8 @@ services:
     image: chronikum/zfm-backend:alpha
     container_name: backend
     restart: unless-stopped
+    depends_on:
+      - "db"
     environment:
       - DATABASE_PATH=mongodb://db:27017/backend
       - HOST=https://testing.de
@@ -18,6 +20,8 @@ services:
     image: chronikum/zfm-frontend:alpha
     container_name: frontend
     restart: unless-stopped
+    depends_on:
+      - "backend"
     ports:
       - "80:80"
     networks:
