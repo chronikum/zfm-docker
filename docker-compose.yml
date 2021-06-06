@@ -30,6 +30,8 @@ services:
     image: mongo
     container_name: db
     restart: unless-stopped
+    volumes:
+      - ./db/data:/data/db
     networks:
       - app-network
 networks:
