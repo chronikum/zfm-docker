@@ -2,7 +2,7 @@ version: '3'
 
 services:
   backend:
-    image: chronikum/zfm-backend:alpha
+    image: chronikum/zfm-backend:auto
     container_name: backend
     restart: unless-stopped
     depends_on:
@@ -17,7 +17,7 @@ services:
       - app-network
     command: ["npm","run-script","prod"]
   frontend:
-    image: chronikum/zfm-frontend:alpha
+    image: chronikum/zfm-frontend:auto
     container_name: frontend
     restart: unless-stopped
     depends_on:
